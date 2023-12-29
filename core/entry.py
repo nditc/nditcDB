@@ -59,8 +59,11 @@ def nan():
     Member.objects.filter(background_club_Activities="nan").update(background_club_Activities="")
     Member.objects.filter(institutional_background="nan").update(institutional_background="")
 
-#remove .0
 """
+todo:
+    add 0 in contact number
+    remove .0 in any field
+
 ['Index', 'Serial\nNo', 'Transaction ID', 'Name', 'Father's Name',
        'Mother's Name', 'Admission Serial ', 'College Roll', 'Present Address',
        'Permanent Address', 'Contact\nNumber', 'E-mail Address',
