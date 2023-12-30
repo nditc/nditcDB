@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '847fu7z!-6$+-2e=oc0h9fmdb=ncf*9#n8c415%rnrf+@0_od3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -156,3 +156,4 @@ REST_FRAMEWORK = {
 }
 
 APPEND_SLASH = True
+LOGIN_REDIRECT_URL = '/api/v1/'

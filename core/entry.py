@@ -1,11 +1,16 @@
 import pandas as pd
 from .models import Member
+import os
 
-def add(filename=None,year=2025):
-    data = pd.read_csv(filename)
+def add(filename=25,year=2025):
+    filename = str(os.getcwd())+f"\\core\\{filename}.csv"
+    data = pd.read_csv(filename,dtype=str)
+    # for col in data.columns:
+    #     print(col)
     for i in data.index:
         if i in [124,209,210,218]:
             #2025 ====>70
+            #2024 ====>124,209,210,218
             continue
         serial = data['Serial\nNo'][i]
         transectionID = data['Transaction ID'][i]
@@ -58,17 +63,9 @@ def nan():
     Member.objects.filter(competitions="nan").update(competitions="")
     Member.objects.filter(background_club_Activities="nan").update(background_club_Activities="")
     Member.objects.filter(institutional_background="nan").update(institutional_background="")
-
 """
-todo:
-    add 0 in contact number
-    remove .0 in any field
-
-['Index', 'Serial\nNo', 'Transaction ID', 'Name', 'Father's Name',
-       'Mother's Name', 'Admission Serial ', 'College Roll', 'Present Address',
-       'Permanent Address', 'Contact\nNumber', 'E-mail Address',
-       'Blood \nGroup', 'Institutional \nBackground',
-       'Background of Club Activities', 'Name of competitions participated']
+=====================2025======================================
+        serial = data['Serial No.'][i]
         transectionID = data['Transection ID'][i]
         name = data['Name'][i]
         father = data['Father\'s Name'][i]
@@ -83,4 +80,20 @@ todo:
         institutionalBackground = data['Institutional Background'][i]
         backgroundClubActivities = data['Background Club Activities'][i]
         competitions = data['Name of competitions you have participated'][i]
+=======================2024================================
+        serial = data['Serial\nNo'][i]
+        transectionID = data['Transaction ID'][i]
+        name = data['Name'][i]
+        father = data['Father\'s Name'][i]
+        mother = data['Mother\'s Name'][i]
+        admissionSerial = data['Admission Serial '][i]
+        clgRoll = data['College Roll'][i]
+        presentAddress = data['Present Address'][i]
+        permanentAddress = data['Permanent Address'][i]
+        contactNumber = data['Contact\nNumber'][i]
+        email = data['E-mail Address'][i]
+        bloodGrp = data['Blood \nGroup'][i]
+        institutionalBackground = data['Institutional \nBackground'][i]
+        backgroundClubActivities = data['Background of Club Activities'][i]
+        competitions = data['Name of competitions participated'][i]
 """
