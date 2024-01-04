@@ -86,4 +86,4 @@ def runQuery(request):
 def getID(request):
     querySet = Member.objects.order_by('id')
     id = querySet[len(querySet)-1].id
-    return Response({'detail':id})
+    return Response({'id':id})
