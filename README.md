@@ -7,13 +7,13 @@
 - Django-Jazzmin
 - Pandas
 
-# How to use
+# How to run
 ```bash
 git clone https://github.com/nditc/nditcDB.git
 cd nditcDB
-python -m pip install -r requirements.txt
-python manage.py collectstatic
-python manage.py runserver
+python3 -m pip install -r requirements.txt
+python3 manage.py collectstatic
+python3 manage.py runserver
 ```
 
 # Functionalites
