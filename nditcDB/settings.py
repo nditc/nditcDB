@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 
@@ -130,7 +130,6 @@ else:
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 JAZZMIN_SETTINGS = {
-    #"site_logo": "assets/Logo.webp"
     "site_title":"NDITC Database",
     "site_header":'NDITC Database',
     "site_brand": "NDITC Database",
