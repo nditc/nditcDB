@@ -28,9 +28,9 @@ python3 manage.py runserver
 - [Run query](#run-query)
 
 # Admin Panel
-  You can add , edit , delete , view student by logging in on [Admin Panel](https://foisal.pythonanywhere.com)
+  You can add , edit , delete , view student by logging in on [Admin Panel](https://nditcdb.pythonanywhere.com)
 # Token Authentication
-  - To get token,you have to post valid <b>username</b> and <b>password</b> in https://foisal.pythonanywhere.com/api/v1/getToken/ .It will return  a JSON response
+  - To get token,you have to post valid <b>username</b> and <b>password</b> in https://nditcdb.pythonanywhere.com/api/v1/getToken/ .It will return  a JSON response
    - To authenticate, the token key should be included in the Authorization HTTP header. The key should be prefixed by the string literal "Token", with whitespace separating the two strings. For example:
   ```
   {
@@ -39,17 +39,17 @@ python3 manage.py runserver
   ```
   - You have to add authentication credentials to perform anything
 # Fetch all Students data
-  Send a <b>GET</b> request to https://foisal.pythonanywhere.com/api/v1/
+  Send a <b>GET</b> request to https://nditcdb.pythonanywhere.com/api/v1/
 # Fetch Students data by year
   Send a <b>GET</b> request to the server and add the year in the URL
 
-  Example of URL : https://foisal.pythonanywhere.com/api/v1/year/2025/
+  Example of URL : https://nditcdb.pythonanywhere.com/api/v1/year/2025/
 # Fetch data of a specific student
   Send a <b>GET</b> request to the server and add the id of the student in the URL
 
-  Example of URL : https://foisal.pythonanywhere.com/api/v1/3666/
+  Example of URL : https://nditcdb.pythonanywhere.com/api/v1/3666/
 # Add Student data
-  Send a <b>POST</b> request with data to https://foisal.pythonanywhere.com/api/v1/
+  Send a <b>POST</b> request with data to https://nditcdb.pythonanywhere.com/api/v1/
 
   Include data in the HTTP Body.For example:
   ```
@@ -74,11 +74,11 @@ python3 manage.py runserver
 # Update Student data
   Send a <b>PUT/PATCH</b> request with updated data to the server and add the id of the student in the URL . Include updated data in the HTTP Body
 
-  Example of URL : https://foisal.pythonanywhere.com/api/v1/3666/
+  Example of URL : https://nditcdb.pythonanywhere.com/api/v1/3666/
 # Delete Student data
   Send a <b>DELETE</b> request to the server and add the id of the student in the URL
 
-  Example of URL : https://foisal.pythonanywhere.com/api/v1/3666/
+  Example of URL : https://nditcdb.pythonanywhere.com/api/v1/3666/
 # Run query
   - You can run query only for the Table named <b>CORE_MEMBER</b>
   - The fields of the Table <b>CORE_MEMBER</b> are :
@@ -101,12 +101,12 @@ python3 manage.py runserver
     - COMPETITIONS
   - <h4>DON'T CREATE ANY TABLE OR ADD ANY FIELD IN ANY TABLE BY RUNNING QUERY WITH THIS.</h4>
   - Create Table and add fields by only using django Model
-  - You have to post the query in https://foisal.pythonanywhere.com/api/v1/query/ . Include the post data in the HTTP Body. For example:
+  - You have to post the query in https://nditcdb.pythonanywhere.com/api/v1/query/ . Include the post data in the HTTP Body. For example:
   ```
   {
     query : 'SELECT * FROM CORE_MEMBER'
   }
   ```
-  - When adding new data , you have to get id from https://foisal.pythonanywhere.com/api/v1/getID/ and use it as the id for the student. Don't put id as your wish.
+  - When adding new data , you have to get id from https://nditcdb.pythonanywhere.com/api/v1/getID/ and use it as the id for the student. Don't put id as your wish.
 
   <b>Note</b> : Running query with this is not recommended . It may cause unusual internal errors.
