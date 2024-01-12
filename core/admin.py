@@ -10,3 +10,4 @@ class MemberAdmin(admin.ModelAdmin):
     list_display = Member.DisplayFields
     search_fields = Member.SearchFields
     list_filter = Member.FilterFields
+    readonly_fields = ('id',)
