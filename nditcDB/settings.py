@@ -140,6 +140,13 @@ JAZZMIN_SETTINGS = {
     "show_sidebar": True,
     "navigation_expanded": True,
     "use_google_fonts_cdn": True,
+    "topmenu_links":[
+        {"name": "Developer", "url": "https://github.com/Foisal1301", "new_window": True},
+    ],
+    "usermenu_links": [
+        {"name": "Go to main Website", "url": "https://nditc.net/", "new_window": True},
+        {"name": "Developer", "url": "https://github.com/Foisal1301", "new_window": True},
+    ],
 }
 
 JAZZMIN_UI_TWEAKS = {
