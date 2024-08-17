@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404,get_list_or_404
 """
 ////////////////get Token/////////////////////////
     method ===> POST
-    url : https://foisal.pythonanywhere.com/api/v1/getToken/
+    url : https://nditcdb.pythonanywhere.com/api/v1/getToken/
     body ==> 'username': '***','password':'***'
 """
 @api_view(['GET','POST','PATCH','PUT','DELETE'])
@@ -55,6 +55,16 @@ def index(request,pk=None):
 @api_view(['GET'])
 @authentication_classes([authentication.TokenAuthentication,authentication.SessionAuthentication])
 @permission_classes([permissions.IsAuthenticated])
+def fetchDataByRoll(request,year,roll):
+    if roll != None:
+            # fetch specific data
+        member = get_object_or_404(Member,year=year,college_roll=roll)
+        serializer = MemberSerializer(member)
+        return Response(serializer.data)
+
+@api_view(['GET'])
+@authentication_classes([authentication.TokenAuthentication,authentication.SessionAuthentication])
+@permission_classes([permissions.IsAuthenticated])
 def year(request,year):
     # Fetch students by Year
     qs = get_list_or_404(Member,year=year)
@@ -71,7 +81,7 @@ def runQuery(request):
     # DON'T CREATE ANY TABLE BY RUNNING QUERY
     # DON'T ADD ANY FIELD IN ANY TABLE BY RUNNING QUERY
     # Create Table and add fields by only using django Model
-    # Get the id from https://foisal.pythonanywhere.com/api/v1/getID/
+    # Get the id from https://nditcdb.pythonanywhere.com/api/v1/getID/
     # Don't use id as your wish
     try:
         objs = Member.objects.raw(request.data['query'])

@@ -9,4 +9,5 @@ urlpatterns = [
     path('query/',views.runQuery),
     path('getID/',views.getID),
     path('getToken/',obtain_auth_token),
+    path('fetchDataByRoll/<int:year>/<str:roll>/',views.fetchDataByRoll)
 ]
