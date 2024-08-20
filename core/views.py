@@ -52,15 +52,51 @@ def index(request,pk=None):
         qs.delete()
         return Response({'detail':'deleted successfully!'})
     
-@api_view(['GET'])
+@api_view(['GET','PATCH','PUT','DELETE'])
 @authentication_classes([authentication.TokenAuthentication,authentication.SessionAuthentication])
 @permission_classes([permissions.IsAuthenticated])
-def fetchDataByRoll(request,year,roll):
-    if roll != None:
-            # fetch specific data
+def roll(request,year,roll):
+    if request.method == "GET":
+        # fetch specific data
         member = get_object_or_404(Member,year=year,college_roll=roll)
         serializer = MemberSerializer(member)
         return Response(serializer.data)
+    elif request.method == 'PATCH' or request.method == 'PUT':
+        # Edit data
+        qs = get_object_or_404(Member,year=year,college_roll=roll)
+        serializer = MemberSerializer(data=request.data,instance=qs)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)
+        
+    elif request.method == 'DELETE':
+        # delete data
+        qs = get_object_or_404(Member,year=year,roll=roll)
+        qs.delete()
+        return Response({'detail':'deleted successfully!'})
+    
+@api_view(['GET','PATCH','PUT','DELETE'])
+@authentication_classes([authentication.TokenAuthentication,authentication.SessionAuthentication])
+@permission_classes([permissions.IsAuthenticated])
+def uniqueID(request,uid):
+    if request.method == "GET":
+        # fetch specific data
+        member = get_object_or_404(Member,uniqueID=uid)
+        serializer = MemberSerializer(member)
+        return Response(serializer.data)
+    elif request.method == 'PATCH' or request.method == 'PUT':
+        # Edit data
+        qs = get_object_or_404(Member,uniqueID=uid)
+        serializer = MemberSerializer(data=request.data,instance=qs)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data)
+        
+    elif request.method == 'DELETE':
+        # delete data
+        qs = get_object_or_404(Member,uniqueID=uid)
+        qs.delete()
+        return Response({'detail':'deleted successfully!'})
 
 @api_view(['GET'])
 @authentication_classes([authentication.TokenAuthentication,authentication.SessionAuthentication])

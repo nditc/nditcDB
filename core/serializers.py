@@ -5,7 +5,7 @@ class MemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
         fields = (
-            'id',
+            'uniqueID',
             'year',
             'name',
             'admission_serial',
