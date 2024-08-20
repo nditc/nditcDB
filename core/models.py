@@ -1,4 +1,5 @@
 from django.db import models
+# import uuid
 
 BLOOD_GRP_CHOICES = (
     ('a+','A+'),
@@ -21,6 +22,7 @@ YEAR = (
 )
 
 class Member(models.Model):
+    # id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     year = models.IntegerField(choices=YEAR)
     name = models.CharField(max_length=20)
     admission_serial = models.CharField(max_length=20,null=True,blank=True)
