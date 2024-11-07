@@ -20,6 +20,7 @@ class Member(models.Model):
     college_roll = models.CharField(null=True,max_length=10,blank=True)
     serial = models.CharField(max_length=20)
     contact_number = models.CharField(max_length=15,null=True,blank=True)
+    sms_number = models.CharField(max_length=15,null=True,blank=True)
     email = models.EmailField(null=True,blank=True)
     transection_id = models.CharField(max_length=20,null=True,blank=True)
 
